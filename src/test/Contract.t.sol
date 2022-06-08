@@ -1,12 +1,20 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.10;
+pragma solidity ^0.8.10;
 
-import "ds-test/test.sol";
+import "@forge-std/Test.sol";
 
-contract ContractTest is DSTest {
-    function setUp() public {}
+contract ContractBTest is Test {
+    uint256 testNumber;
 
-    function testExample() public {
-        assertTrue(true);
+    function setUp() public {
+        testNumber = 42;
+    }
+
+    function testNumberIs42() public {
+        assertEq(testNumber, 42);
+    }
+
+    function testFailSubtract43() public {
+        testNumber -= 43;
     }
 }
